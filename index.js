@@ -1,35 +1,35 @@
-const shoppingListEl = document.querySelector("#shopping-list");
-const addButtonEl = document.querySelector("#add-button");
-const inputEl = document.querySelector("#input");
-const clearButtonEl = document.querySelector("#clear-button");
+const shoppingListElement = document.querySelector("#shopping-list");
+const addButtonElement = document.querySelector("#add-button");
+const inputElement = document.querySelector("#input");
+const clearButtonElement = document.querySelector("#clear-button");
 
-// Add an item to the shopping list
-addButtonEl.addEventListener("click", () => {
-  const inputElValue = inputEl.value;
+// Add item 
+addButtonElement.addEventListener("click", () => {
+  const inputElementValue = inputElement.value;
 
-  const shoppingListItemEl = document.createElement("li");
-  shoppingListItemEl.textContent = inputElValue;
+  const shoppingListItemElement = document.createElement("li");
+  shoppingListItemElement.textContent = inputElementValue;
 
   const markPurchasedButton = document.createElement("button");
   markPurchasedButton.id = "mark-purchased";
   markPurchasedButton.textContent = "Mark Purchased";
 
-  shoppingListItemEl.appendChild(markPurchasedButton);
+  shoppingListItemElement.appendChild(markPurchasedButton);
 
-  shoppingListEl.appendChild(shoppingListItemEl);
+  shoppingListElement.appendChild(shoppingListItemElement);
 
-  inputEl.value = "";
+  inputElement.value = "";
 });
 
-// Clear the shopping list
-clearButtonEl.addEventListener("click", () => {
-  shoppingListEl.innerHTML = "";
+// Clear list
+clearButtonElement.addEventListener("click", () => {
+  shoppingListElement.innerHTML = "";
 });
 
-// Functionality to  mark the items as purchased
-shoppingListEl.addEventListener("click", (event) => {
+// mark the items 
+shoppingListElement.addEventListener("click", (event) => {
   if (event.target.matches("#mark-purchased")) {
-    const shoppingListItemEl = event.target.parentElement;
-    shoppingListItemEl.classList.add("purchased-item");
+    const shoppingListItemElement = event.target.parentElement;
+    shoppingListItemElement.classList.add("purchased-item");
   }
 });
